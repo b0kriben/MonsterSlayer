@@ -11,22 +11,22 @@ const app = Vue.createApp({
   watch: {
     monsterHealth(value) {
       if(value === 0 && this.playerHealth === 0){
-        this.winner = "It's draw!";
+        this.winnner = "'It's draw!";
       }
       if (value === 0) {
-        this.winner = 'You won!';
+        this.winnner = 'You won!';
       }
     },
     playerHealth(value) {
       if (value === 0) {
-        this.winner = 'Monster won!';
+        this.winnner = 'Monster won!';
       }
     },
   },
   methods: {
     playerAttack() {
-      this.round = ++ this.round % 4;
-      const attack = getRandomNumber(5, 16);
+      this.round = ++ this.round % 3;
+      const attack = getRandomNumber(5, 12);
       this.monsterHealth = Math.max(this.monsterHealth - attack, 0);
       this.logs.unshift(`Player attack - ${attack}`);
       this.monsterAttack();
@@ -37,19 +37,18 @@ const app = Vue.createApp({
       this.logs.unshift(`Monster attack - ${attack}`);
     },
     specialAttack() {
-      this.round = ++ this.round % 4;
+      this.round = ++ this.round % 3;
       const attack = getRandomNumber(10, 25);
       this.monsterHealth = Math.max(this.monsterHealth - attack, 0);
       this.logs.unshift(`Player special attack - ${attack}`);
-      this.monsterAttack();
     },
     heal() {
       const healValue = getRandomNumber(8, 20);
       this.playerHealth = Math.min(this.playerHealth + healValue, 100);
-      this.logs.unshift(`Player heal - ${healValue}`);
+      this.logs.unshift(`Player heal - ${heal}`);
       this.monsterAttack();
     },
-    surrender() {
+    surrend() {
       this.winner = "Monster won!";
       this.logs.unshift(`Player surrender`);
     },

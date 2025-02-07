@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics Sajat</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles2.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+    <script src="app2.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Monster Slayer</h1>
+    </header>
+    <div id="game">
+      <section id="monster" class="container">
+        <h2>Monster Health</h2>
+        <div class="healthbar">
+          <div
+            class="healthbar__value"
+            :style="{width: monsterHealth + '%'}"
+          ></div>
+        </div>
+      </section>
+      <section id="player" class="container">
+        <h2>Your Health</h2>
+        <div class="healthbar">
+          <div
+            class="healthbar__value"
+            :style="{width: playerHealth + '%'}"
+          ></div>
+        </div>
+      </section>
+      <section id="controls" v-if="!winner">
+        <button @click="playerAttack">ATTACK</button>
+        <button @click="specialAttack" :disabled="!round">SPECIAL ATTACK</button>
+        <button @click="heal">HEAL</button>
+        <button @click="surrender">SURRENDER</button>
+      </section>
+      <section class="new-game" v-else>
+        <h2>{{ winner }}</h2>
+        <button @click="newGame">NEW GAME</button>
+      </section>
+      <section id="log" class="container">
+        <h2>Battle Log</h2>
+        <ul>
+          <li v-for="message in logs">{{ message }}</li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
