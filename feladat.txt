@@ -1,0 +1,50 @@
+Egészítsd ki az app.js fájlt, hogy a játékos és a Monster összecsapását szimulálja!
+
+* Monster Health - a szörny élete, alapérték 100
+* Your Health -  játékos élete, alapérték 100
+
+* Gombok:
+- Attack - a játékos megtámadja a szörnyet
+** Játékos támad:
+Véletlen szám generálódik 5 és 12 között, mellyel a szörny élete csökken. 
+Ezzel a Monster Health arányosan rövidül.
+** Monster támad:
+Véletlen szám generálódik 8 és 15 között, mellyel a játékos élete csökken. 
+Ezzel a Your Health arányosan rövidül.
+A szörny erősebb, így jobban sebez.
+
+- Special attack - a játékos egyedi támadása a szörnyre
+Véletlen szám generálódik 10 és 25 között, mellyel a szörny élete csökken.
+A gomb csak minden harmadik lépés esetén érhető el, egyébként disabled.
+A használatát követően a szörny támad egyszer.
+
+- Heal - a játékos életét növeli
+Véletlen szám generálódik 8 és 20 között, mellyel a játékos élete növekszik.
+Az élesztés után a szörny támad egyszer.
+
+- Surrender - feladás
+A játék végetér
+
+* Battle Log - a játék/összecsapás lépéseit logolja
+Eseményenként hozzáadódik egy üzenet, hogy ki volt, milyen esemény történt és mekkora mennyigéggel.
+Példa:
+Player attack - 10
+Monster attack - 13
+Player heal - 14
+
+* Játék vége
+Ha a játékos vagy a szörny élete nulla lesz, akkor a játék végetér.
+
+A játék kimenete:
+You won!
+Monster won!
+It's draw!
+
+A játék végén a gombok eltünnek és a három kimenet közül az egyik jelenik meg.
+Továbbá megjelenik egy új gomv: New game felirattal, mellyel új játék indul.
+
+A játék indulásakor 
+- minden érték az alapállapotára áll vissza
+- a Battle Log üres
+- a négy játékgomb megjelenik
+- a játék végén megjelenő üzenet és gomb eltűnik
