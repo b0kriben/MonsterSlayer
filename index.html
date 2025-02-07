@@ -37,7 +37,7 @@
       </section>
       <section id="controls" v-if="!winner">
         <button @click="playerAttack">ATTACK</button>
-        <button @click="specialAttack">SPECIAL ATTACK</button>
+        <button @click="specialAttack" :disabled="!round">SPECIAL ATTACK</button>
         <button @click="heal">HEAL</button>
         <button @click="surrender">SURRENDER</button>
       </section>
@@ -47,7 +47,9 @@
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>
-        <ul></ul>
+        <ul>
+          <li v-for="message in logs">{{ message }}</li>
+        </ul>
       </section>
     </div>
   </body>
